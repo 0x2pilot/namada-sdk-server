@@ -37,7 +37,7 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 ENV CHAIN_ID=shielded-expedition.88f17d1d14
 ENV PATH="/root/.cargo/bin:${PATH}"
-ENV NAMADA_TAG=v0.31.9
+ENV NAMADA_TAG=v0.32.1
 ENV BINARY_URL=https://github.com/anoma/namada/releases/download/$NAMADA_TAG/namada-$NAMADA_TAG-Linux-x86_64.tar.gz
 
 RUN cd $HOME && rm -rf namada-v*Linux-x86_64* $HOME/namada-binaries && mkdir $HOME/namada-binaries && wget $BINARY_URL && \
@@ -47,8 +47,6 @@ RUN cd $HOME && rm -rf namada-v*Linux-x86_64* $HOME/namada-binaries && mkdir $HO
 WORKDIR /root
 
 RUN namada client utils join-network --chain-id $CHAIN_ID
-
-RUN mkdir -p -m 0600 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 ARG SSH_PRIVATE_KEY
 

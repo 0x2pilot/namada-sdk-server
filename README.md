@@ -5,7 +5,7 @@ Namada Sdk Server - is a simple server that provides a set of endpoints to inter
 ```
 cargo run
 ```
-Note that you would need to install and initalize namada chain on your local machine
+Note that you would need to install and initalize namada chain on your local machine for some of the endpoints to work.
 # Build docker image and run from container
 1. build docker image
 ```
